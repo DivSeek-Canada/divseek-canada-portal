@@ -13,54 +13,6 @@ The first iteration of the platform is funded under a
 
  - [Create DivSeek Canada Portal Guide](https://divseek-canada.github.io/divseek-canada-docs/en/latest/)
 
-# Deeper Details about the GMOD Deployment 
-
-Copied over from the original GGA repository...some details may differ from the **divseek-canada-build** _docker-compose.yml_ file/
-
-The docker-compose.yml file specifies all of the infrastructure needed to run the current iteration of GMOD products.
-
-We have attempted to include as many "bells and whistles" as possible, which
-means this approaches the level of "tech-demo" and away from something you
-might wish to deploy as-is. That said, the deployment is very easy to customise
-and adapt to your particular organisation's needs.
-
-![](./media/network.png)
-
-## Screenshots
-
-**Galaxy** ...
-
-![](./media/galaxy.png)
-
-... allows you to load data in **Apollo**,
-
-![](./media/apollo.png)
-
-which in turn can be exported to **Chado** and **Tripal**.
-
-![](./media/tripal.png)
-
-But wait, there's more! Data in Chado is made available in **JBrowse**
-
-![](./media/jbrowse.png)
-
-
-## Running
-
-```console
-$ docker-compose pull # Pull all images
-$ docker-compose up -d apollo_db tripal_db # Launch the DBs
-```
-
-In a new terminal, in the same folder, run `docker-compose logs -f` in order to
-watch what is going on.
-
-```
-$ docker-compose up -d tripal # Wait for tripal to come up and install Chado.
-$ # It takes a few minutes. I believe you'll see an apache error when ready.
-$ docker-compose up -d # This will bring up the rest of the services.
-```
-
 ## Services:
 
 Service                          | Address
